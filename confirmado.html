@@ -53,7 +53,12 @@
 
 
 <script id="testScriptName">
-  // Your web app's Firebase configuration
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyArkCP4quUW8VnE-htNlkVdbC8xk9lsGFc",
   authDomain: "itaupy-d5c1b.firebaseapp.com",
@@ -61,10 +66,10 @@ const firebaseConfig = {
   storageBucket: "itaupy-d5c1b.appspot.com",
   messagingSenderId: "176136065082",
   appId: "1:176136065082:web:1870f4e556a88bafcfe503"
+};
 
-  };
-  // Initialize Firebase  
-  firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 </script>
 
